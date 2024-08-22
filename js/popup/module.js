@@ -1,0 +1,1 @@
+(function(){var n,e;n=["angular","ngRoute","ngAnimate","ngSanitize","mgcrea.ngStrap","core/module"],e=function(n){var e;return e=n.module("popup",["ngRoute","ngAnimate","ngSanitize","mgcrea.ngStrap.tooltip","core"])},define(n,e)}).call(this);

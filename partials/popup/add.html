@@ -1,0 +1,20 @@
+<div class="add page">
+    <p>Add domain to whitelist:</p>
+
+    <form>
+        <input class="domain form-control" name="domain" type="text"
+               ng-model="name">
+        <span class="text-muted">（Contains subdomain）</span>
+
+        <div class="pull-right btn-group">
+            <button type="button" class="cancel btn btn-sm btn-default"
+                    ng-click="routeToMenu()">
+                Cancel
+            </button>
+            <button type="submit" class="add btn btn-sm btn-success"
+                ng-click="addDomain()">
+                OK
+            </button>
+        </div>
+    </form>
+</div>

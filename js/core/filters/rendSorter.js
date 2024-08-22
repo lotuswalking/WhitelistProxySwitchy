@@ -1,0 +1,1 @@
+(function(){var n,r;n=["angular","core/module"],r=function(n){var r;return r=function(){return function(n){return"-_mtime"===n?"按照时间排序":"name"===n?"按照字母排序":void 0}},n.module("core").filter("rendSorter",r)},define(n,r)}).call(this);

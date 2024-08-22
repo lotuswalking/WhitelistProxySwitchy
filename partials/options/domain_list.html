@@ -1,0 +1,45 @@
+<div class="page-header">
+    <h2>Domain Whitelist</h2>
+
+    <div class="sort dropdown pull-right right">
+        <a class="btn btn-link btn-xs"
+           data-animation="am-flip-x"
+           data-placement="bottom-right" bs-dropdown="dropdown">
+            {{sorter|rendSorter}}
+            <span class="caret"></span>
+        </a>
+    </div>
+
+    <div class="clearfix"></div>
+</div>
+
+
+<form class="add-domain" ng-submit="addDomain()">
+    <div class="input-group">
+        <input  type="text" class="form-control" placeholder="Please input the domain and press the Enter key"
+               ng-change="clearError()"
+               ng-disabled="!$root.isVIP()"
+               ng-model="domainToAdd">
+
+        <div class="input-group-btn">
+            <input type="submit" value="Add domain" class="btn btn-default" >
+        </div>
+    </div>
+
+    <div class="help-block">
+        <span ng-if="!error">The proxy will be auto use once you request the folloing domain</span>
+        <span ng-if="error" class="text-danger">
+            <i class="glyphicon glyphicon-exclamation-sign"></i>
+            {{error}}
+        </span>
+    </div>
+</form>
+
+<img src="/img/loading-bars-gray.svg" style="margin: 0 auto; display: block;" ng-if="domains.length==0"/>
+
+<div class="domains row">
+    <div ng-repeat="domain in $root.domains | orderBy: sorter"
+         ng-if="!domain._deleted" class="col-xs-6">
+        <domain model="domain"></domain>
+    </div>
+</div>

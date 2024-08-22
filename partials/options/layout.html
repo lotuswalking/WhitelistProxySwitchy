@@ -1,0 +1,60 @@
+<!--suppress HtmlUnknownAnchorTarget -->
+<div class="row">
+    <div class="nav-col col-xs-3">
+        <h1>
+            WhitelistProxySwitchy
+            <small>{{ ver }}</small>
+        </h1>
+
+        <hr>
+        <div ng-controller="ProfileController">
+            <div class="profile panel panel-default">
+                          <div class="panel-body">
+            
+                        <div class="form-group">
+    <label for="exampleInputEmail1">Http(s) proxy & port</label>
+    <input type="input" class="form-control" id="httpProxy" ng-model="proxyAddr" placeholder="127.0.0.1:8787">
+  </div>
+          
+                </div>
+
+                 <div class="panel-footer">
+                    <a target="_blank" class="btn btn-primary btn-block "  ng-click="setProxy()">Update Proxy Address</a> 
+                </div>
+				
+				<ul class="list-group repeat-item">
+			 
+				     <li class="list-group-item" ng-repeat="proxy in proxyAddrHis track by $index" proxyvalue="{{proxy}}">
+					 <a class="cursor-pointer" title="Click to use"   ng-click="reuse($event)"> {{proxy}}</a>
+						<span class="glyphicon glyphicon-remove pull-right cursor-pointer red" ng-click="removeFromHistory($event)"></span>
+					</li>
+              </ul>
+	
+            </div>
+			
+			  <div class="panel-footer">
+                    <a target="_blank" class="btn btn-warning btn-block "  ng-click="downloadPacScript()">Download Pac Script</a> 
+                </div>
+        </div> <!--end of profile controller-->
+
+        <div class="nav-menu list-group">
+            <a href="https://chrome.google.com/webstore/detail/whitelistproxyswitchy/fkdpddcmgklcnejajcoafipmlodbgeom" class="list-group-item" ng-class="{selected: 'domains' == currentState}">
+                Chrome market download address
+            </a>
+          
+            <a href="http://blog.datafiddle.net" class="list-group-item" ng-class="{selected: 'blog' == currentState}">
+                My blog
+            </a>
+           
+        </div>
+
+        <div id="pacScript">
+		
+        </div>		
+    </div>
+    <div class="main-col col-xs-9">
+
+    
+        <div ui-view></div>
+    </div>
+</div>

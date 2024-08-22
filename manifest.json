@@ -1,0 +1,24 @@
+{
+   "background": {
+      "page": "background.html"
+   },
+   "browser_action": {
+      "default_icon": "img/icon-auto.png",
+      "default_popup": "popup.html",
+      "default_title": "WhitelistProxySwitchy"
+   },
+   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+   "default_locale": "en",
+   "description": "__MSG_toolDesc__",
+   "icons": {
+      "128": "img/logo.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjCuP0o2QlALnwoNE8OAOcCMe0tCPY+4Iz8Z0PsVvgX/c3IfZS6YUAfKUQ9qa27EBTQSxA0zB/fBbnQ6qnKZFB9wKots9xZrP8zJYwirDt1cNB8yhvuC0vpvjKALcJNq1/Z/+c3JVJmgdEL8zq9U+AKgMqtFFpGetfjRV8YzRcSqP3QKxF+6NzqwJNnyAL68GmQuQvRZ7lfMOl2bwsbM9J8xuZMaqBk3hyCI7ZtGjbepFVROAJkOcyUMVP4uhQbcrlD9y1QIs/VPdSsnNYIwCiOEpCL9mlWNdGilNakLF9t0+isK8zrSM862PH50Ni1hyOwiSQCqiF1bWyJL7PT3JnQIDAQAB",
+   "manifest_version": 2,
+   "minimum_chrome_version": "22.0.0",
+   "name": "__MSG_name__",
+   "options_page": "options.html",
+   "permissions": [ "management", "proxy", "tabs", "webRequest", "webRequestBlocking", "http://*/", "https://*/" ],
+   "update_url": "http://clients2.google.com/service/update2/crx",
+   "version": "1.0.10"
+}

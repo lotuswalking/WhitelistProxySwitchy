@@ -1,0 +1,19 @@
+<div class="conflict page">
+    <div class="block section">
+        <span class="section-title text-danger">Detected conflicted plugin</span>
+        <hr>
+        <ul class="list-unstyled">
+            <li ng-repeat="ext in extensions()">
+                <img ng-src="{{ ext.iconUrl }}">
+                {{ext.icons}}
+                <a href="chrome://extensions/?id={{ ext.id }}" target="_blank"
+                        ng-click="openExtensionPage(ext.id)">
+                    {{ ext.name }}
+                </a>
+            </li>
+        </ul>
+        <p class="text-muted">
+            The above plugin conflicted with WhitelistProxySwichy, please click<a href="chrome://extensions" ng-click="openExtensionPage()">Plugin List</a>，and then disable it.
+        </p>
+    </div>
+</div>

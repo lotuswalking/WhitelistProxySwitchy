@@ -1,0 +1,1 @@
+(function(){var n,r;n=["angular","core/module"],r=function(n){var r;return r=function($rootScope){return function(n){return n===$rootScope.user.profile.name?"我":n}},n.module("core").filter("renderAccount",r)},define(n,r)}).call(this);

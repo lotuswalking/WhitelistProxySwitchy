@@ -1,0 +1,8 @@
+{
+   "name": {
+      "message": "WhitelistProxyAutoSwitchy"
+   },
+   "toolDesc": {
+      "message": "WhitelistProxySwitchy provides an easy way to add domain to whitelist and accessing it through proxy server"
+   }
+}

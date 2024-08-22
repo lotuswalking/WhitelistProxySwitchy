@@ -1,0 +1,39 @@
+<form name="login" class="login step" ng-submit="doLogin()" novalidate>
+    <div class="form-group" form-state="login.name">
+        <div class="errors">
+            <span class="error" ng-if="register.name.$error.required">请输入账号</span>
+            <span class="error" ng-if="register.name.$error.existed">账号不存在，请登录其他用户名</span>
+        </div>
+        <label>账号</label>
+        <input name="name" class="form-control input-lg font-kai" type="text" placeholder="请输入 邮箱/手机号码"
+               ng-model="$root.name"
+               ng-focus="$root.goToAccountView()"
+               ng-disabled="disableInputs"
+               required
+                >
+        <a class="form-control-feedback glyphicon glyphicon-ok"></a>
+    </div>
+
+    <div class="form-group" form-state="login.password">
+        <div class="errors">
+            <span class="error" ng-if="login.password.$error.required">请输入密码</span>
+            <span class="error" ng-if="login.password.$error.minlength">请输入至少六位密码</span>
+            <span class="error" ng-if="login.password.$error.mismatch">您输入的密码不正确</span>
+        </div>
+        <label>密码</label>
+        <input name="password" type="password" class="form-control input-lg font-kai" placeholder="请输入密码"
+               ng-model="password"
+               focus-bind="focuses.password"
+               ng-disabled="disableInputs"
+               ng-change="login.password.$setValidity('mismatch', true)"
+               required
+               ng-minlength="6">
+    </div>
+
+    <button type="submit" class="btn btn-block btn-primary btn-lg" ng-disabled="disableInputs">
+        <span ng-hide="disableInputs">登录</span>
+        <img src="/img/loading-bars.svg" alt="loading" ng-show="disableInputs"/>
+    </button>
+    <a ng-href="{{resetPasswordUrl}}" class="pull-right" target="_blank">找回密码</a>
+    <div class="clearfix"></div>
+</form>

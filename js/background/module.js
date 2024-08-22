@@ -1,0 +1,1 @@
+(function(){var n,e;n=["angular","core/module"],e=function(n){return n.module("background",["core"])},define(n,e)}).call(this);

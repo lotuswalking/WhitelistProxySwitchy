@@ -1,0 +1,27 @@
+<form name="account" class="account step"
+      ng-submit="checkNameExistence()"
+      novalidate>
+
+    <div class="form-group" form-state="account.name" >
+        <div class="errors">
+            <span class="error" ng-if="account.name.$error.required">亲忘了在下面输入账号哦</span>
+            <span class="error" ng-if="account.name.$error.format">账号格式为邮箱或手机号</span>
+        </div>
+
+        <label>账号</label>
+        <input name="name" type="text" placeholder="请输入 邮箱/手机号码" class="form-control font-kai input-lg"
+               ng-model="$root.name"
+               focus-bind="focuses.name"
+               ng-disabled="disableInputs"
+               required
+               ui-validate="{format: 'validateNameFormat($value)'}">
+
+        <button type="submit" class="btn btn-block btn-info btn-lg" ng-disabled="disableInputs">
+            <span ng-hide="disableInputs">注册 | 登录</span>
+            <img ng-show="disableInputs" src="/img/loading-bars.svg" alt="loading"/>
+        </button>
+
+        <a ng-href="{{resetPasswordUrl}}" class="pull-right" target="_blank">找回密码</a>
+        <div class="clearfix"></div>
+    </div>
+</form>

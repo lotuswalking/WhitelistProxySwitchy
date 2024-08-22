@@ -1,0 +1,1 @@
+(function(){var e,i;e=["angular","ui.utils","ui.router","ui.keypress","ngSanitize","mgcrea.ngStrap","core/module"],i=function(e){return e.module("options",["ui.utils","ui.router","ui.keypress","ngSanitize","mgcrea.ngStrap","core"])},define(e,i)}).call(this);

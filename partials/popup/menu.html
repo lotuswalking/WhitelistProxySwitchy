@@ -1,0 +1,99 @@
+<div class="menu page">
+
+    <div ng-switch x-on="state">
+        <div class="block section" ng-switch-when="blocked">
+            <span class="section-title">Current page included domains:</span>
+            <ul class="block-list list-unstyled">
+                <li ng-repeat="domain in blockedDomains">
+                    <label>
+                        <input type="checkbox" ng-model="domain.selected">
+                        <span class="text-danger">{{ domain.name }}</span>
+                    </label>
+                </li>
+            </ul>
+            <button type="button" class="add btn btn-block btn-success"
+                    ng-click="addSelectedDomains()">
+                <i class="glyphicon glyphicon-plus pull-right"></i>
+                Add domain to whitelist
+            </button>
+        </div>
+
+        <div class="non-block section" ng-switch-when="normal">
+            <span class="section-title">{{ currentDomain }}</span>
+
+            <div ng-switch x-on="currentDomainIsAdded">
+                <button type="button" class="add new btn btn-block btn-success"
+                        ng-switch-when="no"
+                        ng-click="addDomain(currentDomain)">
+                    <i class="glyphicon glyphicon-plus pull-right"></i>
+                        Add domain to whitelist
+                </button>
+                <div ng-switch-when="yes">
+                    <button type="button" class="added right-btn btn btn-default pull-right"
+                            ng-click="remove(currentDomain)"
+                            title="Remove domain from whitelist"
+                            data-title="Remove domain from whitelist"
+                            data-placement="left" data-type="info" bs-tooltip>
+                        <i class="glyphicon glyphicon-trash pull-right text-danger"></i>
+                    </button>
+                    <div>
+                        <button type="button" class="added left-btn old btn btn-block btn-default pull-right" disabled>
+                            This domain already in whitelist
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="clearfix"></div>
+    <hr>
+
+    <span class="section-title">ProxyMode</span>
+
+    <div class="tips-box" ng-init="tips=''" ng-show="tips">
+        <div class="tips">
+            <div class="content">
+                {{ tips }}
+            </div>
+        </div>
+    </div>
+
+    <div class="modes btn-group btn-group-justified btn-group-sm">
+        <a href="" class="btn"
+           ng-class="{'btn-success':$root.mode=='auto', 'btn-default': $root.mode!='auto'}"
+           ng-mouseenter="tips='The web accessing which in whitelist will through proxy'"
+           ng-mouseleave="tips=''"
+           ng-click="switchMode('auto')">
+            DoDemand
+        </a>
+        <a href="" class="btn"
+           ng-class="{'btn-warning':$root.mode=='always', 'btn-default': $root.mode!='always'}"
+           ng-mouseenter="tips='All web accessing will through proxy'"
+           ng-mouseleave="tips=''"
+           ng-click="switchMode('always')">
+            Always
+        </a>
+        <a href="" class="btn"
+           ng-class="{'btn-danger':$root.mode=='never', 'btn-default': $root.mode!='never'}"
+           ng-mouseenter="tips='Close proxy'"
+           ng-mouseleave="tips=''"
+           ng-click="switchMode('never')">
+            Close
+        </a>
+    </div>
+
+    <hr>
+    <div class="footer">
+        <button class="options btn btn-default btn-xs"
+                ng-click="openOptions()">
+            Options | Domain list
+        </button>
+
+        <a ng-click="routeToAdd()" class="add btn btn-link btn-xs glyphicon glyphicon-plus pull-right"
+           data-placement="left" data-type="info"
+           data-container="body" bs-tooltip="addTooltip"></a>
+    </div>
+</div>
